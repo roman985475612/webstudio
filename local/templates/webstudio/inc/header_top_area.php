@@ -1,5 +1,17 @@
 <?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+
+CModule::IncludeModule('highloadblock');
+
+$entity_data_class = GetEntityDataClass(2);
+$rsData = $entity_data_class::getList([
+   'select' => ['*']
+]);
+
+if ($data = $rsData->fetch()) {
+    
+}
+
 ?>
 <!-- Линия с контактами -->
 <div class="header-top-area bg-color ptb-10 hidden-xs">
@@ -7,8 +19,8 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <div class="welcome">
-                    <span><i class="fa fa-envelope"></i> admin@domain.com</span>
-                    <span><i class="fa fa-phone"></i> +012 345 6789</span>
+                    <span><i class="fa fa-envelope"></i> <?= $data['UF_EMAIL'] ?></span>
+                    <span><i class="fa fa-phone"></i> <?= $data['UF_PHONE'] ?></span>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">

@@ -1,63 +1,29 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("description", "Наш Банк - это банк.");
-$APPLICATION->SetTitle("Новости банка");
+$APPLICATION->SetPageProperty("description", "We Coders - это команда профессиональных разработчиков сайтов!");
+$APPLICATION->SetTitle("Главная страница");
+
+// Слайдер
+$APPLICATION->IncludeComponent(
+    'bitrix:news.list',
+    'main_slider',
+    [
+        'IBLOCK_TYPE'   => 'content',
+        'IBLOCK_ID'     => '3',
+        'NEWS_COUNT'    => '3',
+        'SORT_BY1'      => 'SORT',
+        'SORT_ORDER1'   => 'ASC',
+        'PROPERTY_CODE' => ['BUTTON_TEXT', 'BUTTON_LINK'],
+    ]
+);
+
+// О нас
+$APPLICATION->IncludeFile(SITE_DIR . '/include/_about_us.php', [], [
+    'MODE' => 'html',
+    'NAME' => 'Редактирование линии с контактами',
+]);
+
 ?>
-
-<!-- Слайдер -->
-<section class="slider-area">
-    <div class="slider-active">
-        <div class="single-slider">
-            <div class="slider-img parallax-bg bg-opacity-black-60" style="background:url(img/home_slider/home_slider1.jpg)"></div>
-            <div class="slider-content slider-style-2 slider-style-4 text-center z-index-5">
-                <span>Добро пожаловать</span>
-                <h2>Digital-агентство<br> We Coders</h2>
-                <a class="my-button" href="#about_us">Подробнее</a>
-            </div>
-        </div>
-        <div class="single-slider">
-            <div class="slider-img parallax-bg bg-opacity-black-60" style="background:url(img/home_slider/home_slider2.jpg)"></div>
-            <div class="slider-content slider-style-2 slider-style-4 text-center z-index-5">
-                <span>Работайте с лучшими</span>
-                <h2>Судите по результатам</h2>
-                <a class="my-button" href="#portfolio">Смотреть работы</a>
-            </div>
-        </div>
-        <div class="single-slider">
-            <div class="slider-img parallax-bg bg-opacity-black-60" style="background:url(img/home_slider/home_slider3.jpg)"></div>
-            <div class="slider-content slider-style-2 slider-style-4 text-center z-index-5">
-                <span>Большой опыт</span>
-                <h2>Классный результат</h2>
-                <!--<a class="my-button" href="#portfolio">Смотреть работы</a>-->
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- О нас -->
-<section class="who-area-are pad-90" id="about_us">
-    <div class="container">
-        <h2 class="title-1">О нас</h2>
-        <div class="row">
-            <div class="col-md-7">
-                <div class="who-we">
-                    <p>Мы в <b>WeCoders</b> считаем, что любую задачу, даже которая кажется «невозможной» можно
-                       решить, чем мы успешно и занимаемся! У нас собрались только творческие и ответственные
-                       люди,которым под силу решить любую проблему в сфере digital, чтобы помочь другим бизнесам
-                       достичь своих целей. </p>
-                    <p>Используя накопленный за многие годы опыт работы с крупными мировыми корпорациями, мы создаем
-                       творческие инновации, которые обеспечивают реальные результаты. Прокрутите вниз, чтобы узнать
-                       немного о том, кто делает все это.</p>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="about-bg">
-                    <img src="img/about/o_nas_text_block.jpg" alt=""/>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Основные направления -->
 <section class="service-area pt-90 pb-60 bg-color">
