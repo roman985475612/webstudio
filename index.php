@@ -9,7 +9,7 @@ $APPLICATION->IncludeComponent(
     'main_slider',
     [
         'IBLOCK_TYPE'   => 'content',
-        'IBLOCK_ID'     => '3',
+        'IBLOCK_ID'     => getIBlockIdByCode('mainSlider'),
         'NEWS_COUNT'    => '3',
         'SORT_BY1'      => 'SORT',
         'SORT_ORDER1'   => 'ASC',
@@ -18,98 +18,46 @@ $APPLICATION->IncludeComponent(
 );
 
 // О нас
-$APPLICATION->IncludeFile(SITE_DIR . '/include/_about_us.php', [], [
-    'MODE' => 'html',
-    'NAME' => 'Редактирование линии с контактами',
-]);
+$APPLICATION->IncludeFile(
+    SITE_DIR . '/include/_about_us.php', 
+    [], 
+    [
+        'MODE' => 'html',
+        'NAME' => 'Редактирование линии с контактами',
+    ]
+);
+
+// Основные направления
+$APPLICATION->IncludeComponent(
+    'bitrix:news.list',
+    'main_activites',
+    [
+        'IBLOCK_TYPE'         => 'content',
+        'IBLOCK_ID'           => getIBlockIdByCode('mainActivites'),
+        'NEWS_COUNT'          => '3',
+        'SORT_BY1'            => 'SORT',
+        'SORT_ORDER1'         => 'ASC',
+        'PARENT_SECTION_CODE' => 'glavnaya-stranitsa',
+        'PROPERTY_CODE'       => ['ICON_CLASS'],
+    ]
+);
+
+// Инфографика
+$APPLICATION->IncludeComponent(
+    'bitrix:news.list',
+    'infographics',
+    [
+        'IBLOCK_TYPE'         => 'content',
+        'IBLOCK_ID'           => getIBlockIdByCode('infographics'),
+        'NEWS_COUNT'          => '4',
+        'SORT_BY1'            => 'SORT',
+        'SORT_ORDER1'         => 'ASC',
+        'PARENT_SECTION_CODE' => 'glavnaya-stranitsa',
+        'PROPERTY_CODE'       => ['ICON', 'COUNTER'],
+    ]
+);
 
 ?>
-
-<!-- Основные направления -->
-<section class="service-area pt-90 pb-60 bg-color">
-    <div class="container">
-        <div class="row">
-            <div class="section-heading text-center mb-70">
-                <h2>Основные направления</h2>
-                <p>Всё что нужно для производства сайта любой сложности</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="single-service brand-hover radius-4 mb-30 text-center">
-                    <div class="service-icon">
-                        <span class="icon-tools " aria-hidden="true"></span>
-                    </div>
-                    <div class="service-text">
-                        <h3>Web-дизайн</h3>
-                        <p>Создание индивидуальной концепции, от лаконичных решений до сложных динамических
-                           элементов.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="single-service brand-hover radius-4 mb-30 text-center">
-                    <div class="service-icon">
-                        <span class="icon-mobile" aria-hidden="true"></span>
-                    </div>
-                    <div class="service-text">
-                        <h3>Frontend</h3>
-                        <p>Красивая и отзывчивая <b>frontend</b> часть сайта, которая будет отлично работать на всех
-                           разрешениях и устройствах.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="single-service brand-hover radius-4 mb-30 text-center">
-                    <div class="service-icon">
-                        <span class="icon-tools-2" aria-hidden="true"></span>
-                    </div>
-                    <div class="service-text">
-                        <h3>Backend</h3>
-                        <p>Стабильный и быстрый <b>backend</b> сайта с гибкой админкой и высоким уровнем безопасности.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Инфографика -->
-<section class="project-count-area brand-bg pad-90">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-3">
-                <div class="single-count white-text text-center">
-                    <span class="icon-briefcase "></span>
-                    <h2 class="counter">360</h2>
-                    <p>Готовых проектов</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="single-count white-text text-center">
-                    <span class="icon-wine "></span>
-                    <h2 class="counter">690</h2>
-                    <p>Чашек кофе выпито</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="single-count white-text text-center">
-                    <span class="icon-lightbulb"></span>
-                    <h2 class="counter">420</h2>
-                    <p>Воплотили супер-йдей</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="single-count white-text text-center">
-                    <span class="icon-happy"></span>
-                    <h2 class="counter">115</h2>
-                    <p>Счастливых клиентов</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Наши работы -->
 <section class="work-area pt-90 pb-60" id="portfolio">
