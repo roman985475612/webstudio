@@ -24,7 +24,7 @@ $aMenuLinks = [
     ],
     [
         'Портфолио',
-        SITE_DIR . '/portfolio.php',
+        SITE_DIR . '/portfolio/',
         [],
         [],
         ''
