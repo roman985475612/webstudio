@@ -12,7 +12,15 @@ $APPLICATION->IncludeComponent(
         'SEF_MODE'      => 'Y',
         'SEF_FOLDER'    => '/portfolio/',
         'SEF_URL_TEMPLATES' => [
-            'detail' => '#SECTION_CODE#/#ELEMENT_CODE#/', 
+            'detail' => '#SECTION_CODE_PATH#/#ELEMENT_CODE#/', 
+        ],
+        'BROWSER_TITLE' => 'NAME',
+        'PROPERTY_CODE' => [
+            'detail_title',
+            'description',
+            'add_info',
+            'gallery',
+            'link',
         ],
         'SET_TITLE'     => 'Y',
         'SET_STATUS_404'=> 'Y',
