@@ -19,6 +19,7 @@ use Bitrix\Main\Page\Asset;
         Asset::getInstance()->addCSS(SITE_TEMPLATE_PATH . '/assets/css/meanmenu.min.css');
         Asset::getInstance()->addCSS(SITE_TEMPLATE_PATH . '/assets/css/font-awesome.min.css');
         Asset::getInstance()->addCSS(SITE_TEMPLATE_PATH . '/assets/css/responsive.css');
+        Asset::getInstance()->addCSS(SITE_TEMPLATE_PATH . '/assets/css/custom.css');
         Asset::getInstance()->addCSS(SITE_TEMPLATE_PATH . '/assets/style.css');
     
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/vendor/jquery-1.12.0.min.js');

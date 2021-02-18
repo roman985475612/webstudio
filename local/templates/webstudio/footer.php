@@ -10,15 +10,18 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
                     <div class="footer-widget footer-widget-center text-center">
                         <!-- Лого + текст -->
                         <div class="footer-logo">
-                            <a href="#">
-                                <img src="img/logo/logo-white.png" alt=""/>
+                            <a href="/">
+                                <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/logo/logo-white.png" alt="Footer logo"/>
                             </a>
                         </div>
-                        <p>Если вы похожи на большинство компаний, у вас нет маркетингового бюджета в миллион
-                           долларов<br>
-                           или своей команды разработки. Но это не значит, что у вас не может быть<br>
-                           сайта мирового класса. И мы вам в этом поможем!</p>
-
+                        <p class="custom-footer-text">
+                            <?php 
+                                $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/inc/footer_text.php', [], [
+                                    'MODE' => 'html',
+                                    'NAME' => '',
+                                ]);
+                            ?>
+                        </p>
                         <!-- Соц. сети -->
                         <div class="social-icon">
                             <a href="#"><i class="fa fa-facebook"></i></a>
