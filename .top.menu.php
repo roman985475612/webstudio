@@ -38,7 +38,7 @@ $aMenuLinks = [
     ],
     [
         'Контакты',
-        SITE_DIR . '/contact.php',
+        SITE_DIR . '/contacts/',
         [],
         [],
         ''

@@ -1,7 +1,7 @@
 <?php
-$sSectionName = "Главная";
+$sSectionName = "WeCoders";
 $arDirProperties = [
-   "description" => "Наш Банк - это современный банк.",
+   "description" => "We Coders - это команда профессиональных разработчиков сайтов!",
    "keywords"    => "банк, вклады, кредиты, ипотека",
    "robots"      => "index, follow"
 ];
