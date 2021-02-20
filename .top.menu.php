@@ -10,7 +10,7 @@ $aMenuLinks = [
     ],
     [
         'О нас',
-        SITE_DIR . '/about.php',
+        SITE_DIR . '/about/',
         [],
         [],
         ''

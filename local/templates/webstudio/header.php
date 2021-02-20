@@ -168,3 +168,15 @@ use Bitrix\Main\Page\Asset;
         </div>
     </div>
 </header>
+
+<!-- Хлебные крошки (навигация) -->
+<?php if ($APPLICATION->GetCurPage() != '/') {
+    $APPLICATION->IncludeComponent(
+        'bitrix:breadcrumb',
+        'breadcrumb_blue',
+        [
+            'START_FROM' => '0',
+            'SITE_ID'    => 's1',
+        ]
+    );
+} ?>

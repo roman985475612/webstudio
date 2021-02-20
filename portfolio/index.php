@@ -1,7 +1,8 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Портфолио");
+
 $APPLICATION->SetPageProperty("title", "Портфолио | We Coders");
+$APPLICATION->SetTitle("Наши работы");
 
 $APPLICATION->IncludeComponent(
     'bitrix:news',
@@ -22,7 +23,8 @@ $APPLICATION->IncludeComponent(
             'gallery',
             'link',
         ],
-        'SET_TITLE'     => 'Y',
+        'INCLUDE_IBLOCK_INTO_CHAIN' => 'N',
+        'SET_TITLE'     => 'N',
         'SET_STATUS_404'=> 'Y',
         'SHOW_404'      => 'Y',
     ],

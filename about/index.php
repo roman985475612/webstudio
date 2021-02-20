@@ -1,34 +1,9 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "О нас | We coders");
-$APPLICATION->SetPageProperty("keywords", "дизайн верстка о нас");
-$APPLICATION->SetPageProperty("description", "О нашей компании");
-$APPLICATION->SetTitle("О нас");
+
+$APPLICATION->SetPageProperty("title", "О студии | We Coders");
+$APPLICATION->SetTitle("О студии");
 ?>
-<!-- Хлебные крошки (навигация) -->
-<div class="breadcrumb-area brand-bg ptb-100">
-    <div class="container width-100">
-        <div class="row z-index">
-            <div class="col-md-7 col-sm-6">
-                <div class="breadcrumb-title">
-                    <h2 class="white-text">О студии</h2>
-                </div>
-            </div>
-            <div class="col-md-5 col-sm-6">
-                <div class="breadcrumb-menu">
-                    <ol class="breadcrumb text-right">
-                        <li>
-                            <a href="index.html">Главная</a>
-                        </li>
-                        <li>
-                            <a href="#">О нас</a>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- О нас -->
 <?php

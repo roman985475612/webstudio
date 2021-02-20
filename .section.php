@@ -1,5 +1,6 @@
 <?php
-$sSectionName = "WeCoders";
+
+$sSectionName = "Главная";
 $arDirProperties = [
    "description" => "We Coders - это команда профессиональных разработчиков сайтов!",
    "keywords"    => "банк, вклады, кредиты, ипотека",

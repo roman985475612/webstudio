@@ -1,14 +1,19 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "sdfas");
+
+$APPLICATION->SetPageProperty("title", "Тестовая страница");
+$APPLICATION->SetTitle('Тест');
 ?>
-fasd
-<iframe 
-    src="https://yandex.ru/map-widget/v1/?um=constructor%3Abb5efd9aed6bed239dae7c638b80913af9e0e5c01e17da3f43794b498f652005&amp;source=constructor" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-></iframe>
+
+<?php /*$APPLICATION->IncludeComponent(
+    'bitrix:breadcrumb',
+    'breadcrumb_blue',
+    [
+        'START_FROM' => '0',
+        'SITE_ID'    => 's1',
+    ]
+) */?>
+
 
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

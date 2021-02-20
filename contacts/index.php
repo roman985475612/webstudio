@@ -1,8 +1,8 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
-$APPLICATION->SetTitle("Контакты | WeCoders");
 $APPLICATION->SetPageProperty("title", "Контакты | WeCoders");
+$APPLICATION->SetTitle("Контакты");
 
 // Контакты
 CModule::IncludeModule('highloadblock');
@@ -52,7 +52,6 @@ if ($data = $rsData->fetch()) {
                                     </p>
                                 </div>
                             </li>
-                            <li></li>
                         </ul>
                     </address>
                 </div>
