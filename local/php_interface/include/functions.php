@@ -27,8 +27,10 @@ function getIBlockIdByCode(string $code): int
 
 function dd($data)
 {
-    echo '<pre>' . print_r($data, 1) . '</pre>';
+    echo '<pre style="text-align: left;">' . print_r($data, 1) . '</pre>';
 }
+
+CModule::IncludeModule('highloadblock');
 
 function GetEntityDataClass($HlBlockId) 
 {
@@ -40,4 +42,21 @@ function GetEntityDataClass($HlBlockId)
     $entity_data_class = $entity->getDataClass();
     
     return $entity_data_class;
+}
+
+function GetEntityDataById($HlBlockId)
+{
+    $entity_data_class = GetEntityDataClass($HlBlockId);
+    
+    $rsData = $entity_data_class::getList([
+       'select' => ['*']
+    ]);
+
+    $result = [];
+    
+    while ($data = $rsData->fetch()) {
+        $result[] = $data; 
+    }
+
+    return $result;
 }

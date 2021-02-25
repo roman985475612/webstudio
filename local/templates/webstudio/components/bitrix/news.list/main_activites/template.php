@@ -10,7 +10,7 @@ if (empty($arResult['ITEMS'])) {
     <div class="container">
         <div class="row">
             <div class="section-heading text-center mb-70">
-                <h2>Основные направления</h2>
+                <h2><?= empty($arResult['SECTION']) ? 'Направления' : $arResult['SECTION']['PATH'][0]['NAME'] ?></h2>
                 <p>Всё что нужно для производства сайта любой сложности</p>
             </div>
         </div>

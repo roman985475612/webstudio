@@ -1,11 +1,4 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-
-$APPLICATION->SetPageProperty("title", "Тестовая страница");
-$APPLICATION->SetTitle('Тест');
-?>
-
-<?php
 global $APPLICATION; 
 
 CModule::IncludeModule("iblock");
@@ -13,8 +6,8 @@ CModule::IncludeModule("iblock");
 $iblockId = getIBlockIdByCode('services');
 
 $arOrder = ['SORT' => 'ASC'];
-$arSelect = ["ID", "NAME", "IBLOCK_ID", "DETAIL_PAGE_URL"];
-$arFilter = ["IBLOCK_ID" => $iblockId, "ACTIVE" =>"Y"];
+$arSelect = ["NAME", "DETAIL_PAGE_URL"];
+$arFilter = ["IBLOCK_ID" => $iblockId, "ACTIVE" => "Y"];
 
 $res = CIBlockElement::GetList($arOrder, $arFilter, false, false, $arSelect);
 
@@ -32,9 +25,4 @@ while ($ob = $res->GetNextElement()) {
 	];
 }  
 
-dd($aMenuLinksExt);
-?>
-
-
-<?php
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+$aMenuLinks = array_merge($aMenuLinksExt, $aMenuLinks);

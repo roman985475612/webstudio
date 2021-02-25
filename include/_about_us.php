@@ -1,17 +1,8 @@
 <?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
-CModule::IncludeModule('highloadblock');
-
-$entity_data_class = GetEntityDataClass(1);
-$rsData = $entity_data_class::getList([
-   'select' => ['*']
-]);
-
-if ($data = $rsData->fetch()) {
-    $photo = CFile::GetPath($data['UF_IMG']);
-}
-
+$data = GetEntityDataById(1)[0];
+$photo = CFile::GetPath($data['UF_IMG']);
 ?>
 
 <section class="who-area-are pad-90" id="about_us">

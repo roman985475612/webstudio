@@ -18,7 +18,7 @@ $APPLICATION->SetTitle("404 Not Found");
                 <div class="error-content text-center">
                     <h1>404</h1>
                     <p>Страница, которую вы ищете, не найдена!</p>
-                    <a href="index.html" class="btn">На главную</a>
+                    <a href="/" class="btn">На главную</a>
                 </div>
             </div>
         </div>
