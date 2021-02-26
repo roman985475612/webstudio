@@ -30,26 +30,45 @@ function dd($data)
     echo '<pre style="text-align: left;">' . print_r($data, 1) . '</pre>';
 }
 
-CModule::IncludeModule('highloadblock');
+Loader::includeModule("highloadblock"); 
 
-function GetEntityDataClass($HlBlockId) 
+function GetEntityDataById($HlBlockId)
 {
     if (empty($HlBlockId) || $HlBlockId < 1) {
         return false;
     }
     $hlblock = HLBT::getById($HlBlockId)->fetch();
+
     $entity = HLBT::compileEntity($hlblock);
+
     $entity_data_class = $entity->getDataClass();
     
-    return $entity_data_class;
+    $rsData = $entity_data_class::getList([
+       'select' => ['*'],
+       'order'  => ['ID' => 'ASC'],
+    ]);
+
+    $result = [];
+    
+    while ($data = $rsData->fetch()) {
+        $result[] = $data; 
+    }
+
+    return $result;
 }
 
-function GetEntityDataById($HlBlockId)
+function getEntityDataByName($hlblockName)
 {
-    $entity_data_class = GetEntityDataClass($HlBlockId);
+    // $hlblock = HLBT::getList(['filter' => ['NAME' => $hlblockName]])->fetch();
+    // $entity = HLBT::compileEntity($hlblock);
+
+    $entity = HLBT::compileEntity($hlblockName);
+
+    $entity_data_class = $entity->getDataClass();
     
     $rsData = $entity_data_class::getList([
-       'select' => ['*']
+       'select' => ['*'],
+       'order'  => ['ID' => 'ASC'],
     ]);
 
     $result = [];

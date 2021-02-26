@@ -4,16 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Контакты | WeCoders");
 $APPLICATION->SetTitle("Контакты");
 
-// Контакты
-CModule::IncludeModule('highloadblock');
-
-$entity_data_class = GetEntityDataClass(2);
-$rsData = $entity_data_class::getList([
-   'select' => ['*']
-]);
-
-if ($data = $rsData->fetch()) {
-}
+$contact = getEntityDataByName('Contact')[0];
 
 ?>
 
@@ -35,20 +26,20 @@ if ($data = $rsData->fetch()) {
                                 <div class="address">
                                     Мы находимся по адресу:
                                     <hr>
-                                    <p><?= $data['UF_ADDRESS'] ?></p>
+                                    <p><?= $contact['UF_ADDRESS'] ?></p>
                                 </div>
                             </li>
                             <li>
                                 <i aria-hidden="true" class="fa fa-phone brand-color"></i>
                                 <div class="phone">
-                                    <p><?= $data['UF_PHONE'] ?></p>
+                                    <p><?= $contact['UF_PHONE'] ?></p>
                                 </div>
                             </li>
                             <li>
                                 <i class="fa fa-envelope brand-color"></i>
                                 <div class="mail">
                                     <p>
-                                        <a href="mailto:#"><?= $data['UF_EMAIL'] ?></a>
+                                        <a href="mailto:#"><?= $contact['UF_EMAIL'] ?></a>
                                     </p>
                                 </div>
                             </li>
