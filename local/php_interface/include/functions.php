@@ -57,6 +57,28 @@ function GetEntityDataById($HlBlockId)
     return $result;
 }
 
+function getEntityDataByTableName($tableName)
+{
+    $hlblock = HLBT::getList(['filter' => ['TABLE_NAME' => $tableName]])->fetch();
+
+    $entity = HLBT::compileEntity($hlblock);
+
+    $entity_data_class = $entity->getDataClass();
+
+    $rsData = $entity_data_class::getList([
+        'select' => ['*'],
+        'order'  => ['ID' => 'ASC'],
+    ]);
+
+    $result = [];
+
+    while ($data = $rsData->fetch()) {
+        $result[] = $data;
+    }
+
+    return $result;
+}
+
 function getEntityDataByName($hlblockName)
 {
     // $hlblock = HLBT::getList(['filter' => ['NAME' => $hlblockName]])->fetch();
