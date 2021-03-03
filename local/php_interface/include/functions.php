@@ -79,7 +79,7 @@ function getEntityDataByTableName($tableName)
     return $result;
 }
 
-function getEntityDataByName($hlblockName)
+function getEntityDataByName($hlblockName, $filters = [], $order = ['ID' => 'ASC'])
 {
     // $hlblock = HLBT::getList(['filter' => ['NAME' => $hlblockName]])->fetch();
     // $entity = HLBT::compileEntity($hlblock);
@@ -89,8 +89,9 @@ function getEntityDataByName($hlblockName)
     $entity_data_class = $entity->getDataClass();
     
     $rsData = $entity_data_class::getList([
-       'select' => ['*'],
-       'order'  => ['ID' => 'ASC'],
+        'select' => ['*'],
+        'order'  => $order,
+        'filter' => $filters ?? [],
     ]);
 
     $result = [];
@@ -99,5 +100,16 @@ function getEntityDataByName($hlblockName)
         $result[] = $data; 
     }
 
+    return $result;
+}
+
+function array_set_id_as_key(array $array)
+{
+    $result = [];
+    foreach ($array as $item) {
+        $key = $item['ID'];
+        unset($item['ID']);
+        $result[$key] = $item;
+    }
     return $result;
 }
