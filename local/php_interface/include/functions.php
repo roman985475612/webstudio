@@ -27,7 +27,7 @@ function getIBlockIdByCode(string $code): int
 
 function dd($data)
 {
-    echo '<pre style="text-align: left;">' . print_r($data, 1) . '</pre>';
+    echo '<pre style="text-align: left;"><code>' . print_r($data, 1) . '</code></pre>';
 }
 
 Loader::includeModule("highloadblock"); 
