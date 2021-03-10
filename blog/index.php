@@ -21,7 +21,8 @@ $APPLICATION->SetTitle("Блог");
                         'SEF_MODE'          => 'Y',
                         'SEF_FOLDER'        => '/blog/',
                         'SEF_URL_TEMPLATES' => [
-                            'detail' => '#SECTION_CODE_PATH#/#ELEMENT_CODE#/',
+                            'section' => '#SECTION_CODE#/',
+                            'detail'  => '#SECTION_CODE_PATH#/#ELEMENT_CODE#/',
                         ],
                         'BROWSER_TITLE'     => 'NAME',
                         'LIST_PROPERTY_CODE'=> [
@@ -48,51 +49,26 @@ $APPLICATION->SetTitle("Блог");
                 </div>
 
                 <!-- Категории -->
-                <div class="widget mb-60">
-                    <h4 class="sidebar-title text-uppercase mb-35 pb-10">Категории</h4>
-                    <ul class="widget-cat">
-                        <li>
-                            <a href="#">Web-Дизайн</a>
-                        </li>
-                        <li>
-                            <a href="#">События</a>
-                        </li>
-                        <li>
-                            <a href="#">Разработка</a>
-                        </li>
-                        <li>
-                            <a href="#">Разное</a>
-                        </li>
-                    </ul>
-                </div>
+                <?php $APPLICATION->IncludeComponent(
+                    'bitrix:catalog.section.list',
+                    'blog_category',
+                    [
+                        'IBLOCK_TYPE'   => 'content',
+                        'IBLOCK_ID'     => getIBlockIdByCode('blog'),
+                        'COUNT_ELEMENTS'=> 'N',
+                    ]
+                ) ?>
 
                 <!-- Популярные теги -->
                 <div class="widget mb-60">
                     <h4 class="sidebar-title text-uppercase mb-35 pb-10">Популярные теги</h4>
-                    <ul class="tag">
-                        <li>
-                            <a href="#">PHP</a>
-                        </li>
-                        <li>
-                            <a href="#">UI/UX</a>
-                        </li>
-                        <li>
-                            <a href="#">Дизайн</a>
-                        </li>
-                        <li class="active">
-                            <a href="#">Портфолио</a>
-                        </li>
-
-                        <li>
-                            <a href="#">UI & UX</a>
-                        </li>
-                        <li>
-                            <a href="#">Html5</a>
-                        </li>
-                        <li>
-                            <a href="#">Css3</a>
-                        </li>
-                    </ul>
+                    <?php $APPLICATION->IncludeComponent(
+                        'bitrix:search.tags.cloud',
+                        'blog_popular_tags',
+                        [
+                            'URL_SEARCH'    => '/blog/index.php',
+                        ]
+                    ) ?>
                 </div>
             </div>
         </div>

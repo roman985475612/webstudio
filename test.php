@@ -7,8 +7,7 @@ $APPLICATION->SetTitle('Тест');
 
 <?php
 
-$data = getEntityDataByName('contact');
-dd($data);
+// dd($GLOBALS);
 
 ?>
 

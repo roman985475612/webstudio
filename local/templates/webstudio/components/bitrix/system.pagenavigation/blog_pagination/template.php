@@ -1,7 +1,9 @@
 <?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
     die();
-
+    
+if($arResult['NavPageCount'] < 2)
+    return;
 ?>
 
 <ul class="pagination mt-50">

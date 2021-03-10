@@ -19,6 +19,6 @@ $arUrlRewrite = [
         'RULE'      => '',
         'ID'        => 'bitrix:news',
         'PATH'      => '/blog/index.php',
-        'SORT'      => 20,
+        'SORT'      => 30,
     ],
 ];
