@@ -34,11 +34,11 @@ for ($i = 1; $i <= $arResult['NavPageCount']; $i++) {
             'type' => 'CURRENT',
             'link'  => '#!',
         ];
-    } else if ($i == 1) {
-        $page = [
-            'type' => '',
-            'link'  => $prevQueryString,
-        ];
+    // } else if ($i == 1) {
+    //     $page = [
+    //         'type' => '',
+    //         'link'  => $prevQueryString,
+    //     ];
     } else {
         $page = [
             'type' => '',

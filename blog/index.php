@@ -40,16 +40,18 @@ $APPLICATION->SetTitle("Блог");
             <!-- Правая колонка -->
             <div class="col-md-4 col-sm-12 col-xs-12 mt-sm-40 mt-xs-40">
 
-                <!-- Поиск -->
-                <div class="widget mb-60">
-                    <form class="search-form" action="#">
-                        <input type="text" placeholder="Поиск"/>
-                        <button><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
+                <?php 
+                // Поиск
+                $APPLICATION->includeComponent(
+                    'bitrix:search.form',
+                    'blog_search_form',
+                    [
+                        'PAGE' => '#SITE_DIR#search/index.php',
+                    ]
+                ); 
 
-                <!-- Категории -->
-                <?php $APPLICATION->IncludeComponent(
+                // Категории
+                $APPLICATION->IncludeComponent(
                     'bitrix:catalog.section.list',
                     'blog_category',
                     [
@@ -57,19 +59,18 @@ $APPLICATION->SetTitle("Блог");
                         'IBLOCK_ID'     => getIBlockIdByCode('blog'),
                         'COUNT_ELEMENTS'=> 'N',
                     ]
-                ) ?>
+                );
 
-                <!-- Популярные теги -->
-                <div class="widget mb-60">
-                    <h4 class="sidebar-title text-uppercase mb-35 pb-10">Популярные теги</h4>
-                    <?php $APPLICATION->IncludeComponent(
-                        'bitrix:search.tags.cloud',
-                        'blog_popular_tags',
-                        [
-                            'URL_SEARCH'    => '/blog/index.php',
-                        ]
-                    ) ?>
-                </div>
+                // Популярные теги
+                $APPLICATION->IncludeComponent(
+                    'bitrix:search.tags.cloud',
+                    'blog_popular_tags',
+                    [
+                        'URL_SEARCH' => '/search/index.php',
+                    ]
+                );
+                ?>
+
             </div>
         </div>
     </div>
