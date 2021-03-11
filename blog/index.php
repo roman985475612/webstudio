@@ -25,9 +25,10 @@ $APPLICATION->SetTitle("Блог");
                             'detail'  => '#SECTION_CODE_PATH#/#ELEMENT_CODE#/',
                         ],
                         'BROWSER_TITLE'     => 'NAME',
-                        'LIST_PROPERTY_CODE'=> [
-                            'AUTHOR',
-                        ],
+                        'FIELD_CODE'        => ['SHOW_COUNTER'],
+                        'DETAIL_FIELD_CODE' => ['SHOW_COUNTER'],
+                        'LIST_FIELD_CODE'   => ['SHOW_COUNTER'],
+                        'LIST_PROPERTY_CODE'=> ['AUTHOR',],
                         'INCLUDE_IBLOCK_INTO_CHAIN' => 'N',
                         'SET_TITLE'         => 'Y',
                         'SET_STATUS_404'    => 'Y',

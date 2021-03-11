@@ -2,6 +2,8 @@
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
     die();
 
+use \Bitrix\Main\Localization\Loc;
+Loc::loadLanguageFile(__FILE__);
 ?>
 <?php if(!empty($arResult['ITEMS'])): ?>
     <?php foreach ($arResult['ITEMS'] as $item): ?>
@@ -19,11 +21,12 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
                     <span><a href="#"><i class="fa fa-clock-o"></i> <?= $item['DATE'] ?></a></span> -
                     <span><a href="#"><i class="fa fa-user"></i> <?= $item['AUTHOR'] ?></a></span> -
                     <span><a href="<?= $item['CATEGORY']['URL'] ?>"><?= $item['CATEGORY']['NAME'] ?></a></span> -
-                    <span><a href="#"><i class="fa fa-comments"></i> 1 Комментарий</a></span>
+                    <span><a href="#"><i class="fa fa-eye"></i> <?= $item['SHOW_COUNTER'] ?></a></span>
                 </div>
                 <?= $item['PREVIEW_TEXT'] ?><br>
-                <a class="read-more btn btn-small" href="<?= $item['DETAIL_PAGE_URL'] ?>">Читать
-                    <i class="fa fa-arrow-right"></i></a>
+                <a class="read-more btn btn-small" href="<?= $item['DETAIL_PAGE_URL'] ?>">
+                    <?=Loc::getMessage('READ_MORE');?> <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
         </article>
     <?php endforeach ?>
