@@ -13,10 +13,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
                                 <li>
                                     <a href="<?= $item['LINK'] ?>">
                                         <?= $item['TEXT'] ?>
-                                    
-                                        <?php if (!empty($item['subitems'])): ?>
-                                            <span class="indicator"><i class="fa fa-angle-down"></i></span>
-                                        <?php endif ?>
                                     </a>
                                     <?php if (!empty($item['subitems'])): ?>
                                         <ul>
