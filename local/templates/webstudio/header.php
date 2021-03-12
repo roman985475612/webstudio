@@ -124,47 +124,19 @@ use Bitrix\Main\Page\Asset;
     </div>
 
     <!-- Меню (для мобилки) -->
-    <div class="mobile-menu-area visible-xs">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mobile-menu">
-                        <nav id="dropdown">
-                            <ul>
-                                <li>
-                                    <a href="index.html">Главная</a>
-                                </li>
-                                <li>
-                                    <a href="about_us.html">О нас</a>
-                                </li>
-                                <li>
-                                    <a href="services.html">Услуги</a>
-                                    <ul>
-                                        <li>
-                                            <a href="services_landing.html">Лендинг</a>
-                                        </li>
-                                        <li>
-                                            <a href="services_online_shop.html">Интернет-магазин</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="portfolio.html">Портфолио</a>
-                                </li>
+    <?php $APPLICATION->IncludeComponent("bitrix:menu", "top_menu_mobile", [
+        "ROOT_MENU_TYPE"        => "top", 
+        "MAX_LEVEL"             => "2", 
+        "CHILD_MENU_TYPE"       => "subtop", 
+        "USE_EXT"               => "Y",
+        "DELAY"                 => "N",
+        "ALLOW_MULTI_SELECT"    => "Y",
+        "MENU_CACHE_TYPE"       => "N", 
+        "MENU_CACHE_TIME"       => "3600", 
+        "MENU_CACHE_USE_GROUPS" => "Y", 
+        "MENU_CACHE_GET_VARS"   => "" 
+    ]);?>
 
-                                <li>
-                                    <a href="blog.html">Блог</a>
-                                </li>
-                                <li>
-                                    <a href="contacts.html">Контакты</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </header>
 
 <!-- Хлебные крошки (навигация) -->
